@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@700&family=K2D&display=swap');
+:root{
+     --marinho:#010326;
+     --caneta: #010B40;
+     --celeste: #94C6F2;
+     --amarelo: #F2EEAC;
+  }
+   
+body{
+     color: white;
+     font-family: 'K2D', sans-serif;
+     margin: 0;
+     padding: 0;    
+}
+
+/*==========HEADER=============*/
+.header-wrapper{
+     height: 100vh;
+     width: 100%;
+     background: linear-gradient(-45deg, rgb(88, 60, 87), rgb(54, 21, 77), rgb(87, 33, 78), rgb(57, 9, 66));
+     background-size: 400% 400%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     animation: backgroundTransition 8s ease-in-out infinite ;
+   
+}
+h1{
+     letter-spacing: 4px;
+     font-size: 3rem;
+     text-align: center;
+     margin-top: 0;
+}
+h2{
+     letter-spacing: 4px;
+     margin: 30px 0px ;
+    
+}
+.social-media{
+     display: flex;
+     margin-top: 1rem;
+}
+.social-media a {
+     text-decoration: none;
+     color: white;
+     font-size: 24px;
+     padding:1rem 4rem;
+     border: 1px solid white;
+     min-width: 4rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: 0.5s cubic-bezier(0.55, 0.025, 0.675, 0.97);
+     letter-spacing: 2px;
+}
+
+a:hover{
+     color: #2e1c2b;
+     background-color: white;
+}
+
+@keyframes backgroundTransition{
+     0%{
+          background-position: 0% 80%;
+     }
+     50%{
+          background-position: 80% 100%;
+     }
+     100%{
+          background-position: 0% 80%;
+     }
+}
+/*=============MENU HAMBURGUER============*/
+
+.checkbox-conteiner{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.checkbox{
+     height: 100px;
+     width: 100px;
+     position: absolute ;
+     top: 0;
+     right: 0;
+     display: flex;
+     justify-content: center;
+     cursor: pointer;
+     z-index: 9999;
+     transition: 400ms ease-in-out 0s;
+     
+}
+.checkbox .trace{
+     width: 50px;
+     height: 2px;
+     background-color: white;
+     position: absolute;
+     border-radius: 4px ;
+     transition: 0.5s ease-in-out;
+     position: fixed;
+}
+.checkbox .trace:nth-child(1){
+    transform: rotate(0);
+     top: 26px;
+}
+.checkbox .trace:nth-child(2){
+     transform: rotate(0);
+     top: 46px;
+}
+.checkbox .trace:nth-child(3){
+     transform: rotate(0);
+     top: 66px;
+}
+#toggle{
+     display: none;
+}
+
+/*==========MENU==========*/
+.menu{
+     position: absolute;
+     top: 28px;
+     right: 30px;
+     background: white;
+     height: 40px;
+     width: 40px;
+     border-radius: 50%;
+     box-shadow: 0px 0px 0px 0px white;
+     z-index: -1;
+     transition: 400ms ease-in-out 0s;
+    
+
+}
+.menu-itens{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100vh;
+     display: flex;
+     justify-content:center ;
+     align-items: center;
+     z-index: 2;
+     opacity: 0;
+     visibility: hidden;
+     transition: 400ms ease-in-out 0s;/* tempo, curva, delay*/
+      
+}
+.menu-itens ul{
+     list-style: none;
+    
+     
+}
+
+.menu-itens ul li a {
+     margin: 10px 0;
+     color: #75366b;
+     text-decoration: none;
+     letter-spacing: 3px;
+     font-size: 40px;
+     font-weight: bold;      
+}
+
+
+.menu-itens a:hover{
+     border-radius: 2px;
+     background-color: #75366b3b;
+     display:block;
+     margin: 0;  
+}
+/*==========ANIMAÇÃO MENU=========*/
+
+
+
+#toggle:checked + .checkbox .trace:nth-child(1){
+     transform: rotate(45deg);
+     background-color: #2e1c2b;
+     top: 47px;
+     
+}
+#toggle:checked + .checkbox .trace:nth-child(2){
+     transform: translateX(-100px);
+     width: 30px;
+     visibility: hidden;
+     opacity: 0;
+
+}
+#toggle:checked + .checkbox .trace:nth-child(3){
+     transform: rotate(-45deg);
+     background-color: #2e1c2b;
+     top: 48px;
+}
+
+#toggle:checked + .checkbox{
+     background-color: white;
+}
+
+#toggle:checked ~.menu{
+     box-shadow: 0px 0px 0px 100vmax white;
+     z-index: 1;
+     overflow: hidden;
+     position: fixed;
+}
+#toggle:checked ~ .menu-itens{
+     opacity: 1;
+     visibility: visible;
+}
+
+/*==========CARDS==========*/
+.container{
+     width: 100%;
+     height: auto;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+     margin: 3rem 0;
+}
+.card-container{
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     width: 90%;
+}
+
+.card-container .card:nth-child(1){
+     width: 400px;
+     height: 300px;
+     margin: 3rem 0 0 0;
+     background-image: url(imagens/linkedin.jpg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     filter: grayscale(0.9);
+     color: white;
+     cursor: pointer;
+     transition: 0.3s;
+     border-radius: 8px;
+     box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.144);
+}
+.card-container .card:nth-child(2){
+     width: 400px;
+     height: 300px;
+     margin: 3rem 0 0 0;
+     background-image: url(imagens/github.jpg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     filter: grayscale(0.9);
+     color: white;
+     cursor: pointer;
+     transition: 0.3s;
+     border-radius: 8px;
+     box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.144);
+}
+
+#icard {
+     width: 400px;
+     height: 300px;
+     margin: 3rem 0 0 0;
+     background-image: url(imagens/instagram.jpg);
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     filter: grayscale(0.9);
+     color: white;
+     cursor: pointer;
+     transition: 0.3s;
+     border-radius: 8px;
+     box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.144);
+}
+.card-text{
+     width: 40%;
+     font-family: Arial, Helvetica, sans-serif;
+     letter-spacing: 2px;
+     color:rgb(116, 111, 111);
+     text-align: justify;
+}
+
+.card-wrapper{
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+}
+
+.card-wrapper::before{
+     content: '';
+     position: absolute;
+     height: 100px;
+     width: 100px;
+     display: block;
+     border: 1px solid white;
+     opacity: 0;
+     transition: 0.3s;
+}
+.card-wrapper h2{
+     font-size: 40px;
+     letter-spacing: 4px;
+     margin: 0;
+     transition: 0.3s;
+     text-shadow: 1px 1px 2px black;
+
+}
+
+.card-wrapper p {
+     font-size: 0;
+     visibility: hidden;
+     opacity: 0;
+     font-weight: bold;
+     text-shadow: 1px 1px 2px black;
+     transition: 0.3s;
+     letter-spacing: 2px;
+}
+.card-container .card:hover, #icard:hover{
+filter: unset;
+}
+.card:hover > .card-wrapper::before{
+     opacity: 1;
+     width: 350px;
+     height: 250px;
+     border-radius: 8px;
+}
+.card:hover > .card-wrapper p{
+     font-size: 16px;
+     visibility: visible;
+     opacity: 1;
+}
+
+.footer{
+     width: 100vw;
+     height: 100px;
+     background-color: #2e1c2b;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+@media(max-width: 800px){
+     .social-media{
+          display: flex;
+          flex-direction: column;
+     }
+     h1{
+          font-size: 1.6rem;
+     }
+    
+     h2{
+          font-size: 0.9rem;
+     }
+     .container{
+          margin-top: 0;
+     }
+     .card-container{
+         
+          flex-direction: column;
+     
+     }
+     
+     .container .card-container:nth-child(1),
+     .container .card-container:nth-child(3){
+          flex-direction:column-reverse; 
+         
+     }
+     .container .card-container .card:nth-child(1),
+     .card-container .card:nth-child(2), #icard{
+          width: 300px;
+          height: 300px;
+     }
+   
+     .card-text{
+          width: 80%;
+          margin-top: 2rem;
+     }
+     .card:hover > .card-wrapper::before{
+          
+          width: 260px;
+          height: 260px;
+     }
+
+      } 
+
+     
+
+
+
+
